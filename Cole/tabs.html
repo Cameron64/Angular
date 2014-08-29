@@ -14,13 +14,16 @@
         </li>
     </ul>
 
-    <!--  Description Tab's Content  -->
-    <home ng-show="tab.isSet(1)" ></home>
 
-    <!--  Spec Tab's Content  -->
-    <div product-specs ng-show="tab.isSet(2)"></div>
+    <slide-show ng-show="tab.isSet(1)" ></slide-show>
 
-    <!--  Review Tab's Content  -->
-    <product-reviews ng-show="tab.isSet(3)"></product-reviews>
+    <about ng-show="tab.isSet(2)"></about>
+
+    <resume ng-show="tab.isSet(3)"></resume>
+
+    <contact ng-show="tab.isSet(4)"></contact>
+
+
+
 
 </section>

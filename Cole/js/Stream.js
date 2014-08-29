@@ -10,12 +10,11 @@
             restrict: 'E',
             templateUrl: 'slide-show.html',
             controller: function(){
-                var theater =
-                    [
-                        { "name" : "pics/ColeI-12.jpg", "type" : 0},
-                        { "name" : "pics/headshots2.jpg", "type" : 0},
-                        { "name" : "pics/Stage2.jpg",  "type" : 0}
-                    ];
+                var theater = [
+                    { "name": "pics/ColeI-12.jpg", "type": 0},
+                    { "name": "pics/headshots2.jpg", "type": 0},
+                    { "name": "pics/Stage2.jpg", "type": 0}
+                ];
                 this.album = theater;
 
                 this.picture = 0;
@@ -55,14 +54,15 @@
 
     app.directive('tabs', function(){
         return{
-            restrict: 'A',
+            restrict: 'E',
             templateUrl: 'tabs.html',
             controller: function(){
+
                 this.current = 1;
 
                 this.isSet = function(num) {
 
-                    return this.current == num;
+                    return this.current === num;
 
                 };
 
@@ -75,7 +75,34 @@
             },
             controllerAs: 'tab'
         };
-    })
+    });
 
+    app.directive('contact', function() {
 
+       return{
+
+           restrict: 'E',
+           templateUrl: "contact-info.html"
+
+       };
+    });
+    app.directive('about', function() {
+
+        return{
+
+            restrict: 'E',
+            templateUrl: "About.html"
+
+        };
+    });
+
+    app.directive('resume', function() {
+
+        return{
+
+            restrict: 'E',
+            templateUrl: "resume.html"
+
+        };
+    });
 })();

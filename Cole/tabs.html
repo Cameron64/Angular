@@ -1,21 +1,25 @@
-<section >
+<section>
     <ul class="nav nav-pills">
         <li ng-class="{ active:tab.isSet(1) }">
-            <a href ng-click="tab.setTab(1)">Home</a>
+            <a href ng-click="tab.setTab(1); tab.changeClass('home');
+            tab.revertClass('resume'); tab.revertClass('contact'); tab.revertClass('aboutMe')">Home</a>
         </li>
         <li ng-class="{ active:tab.isSet(2) }">
-            <a href ng-click="tab.setTab(2)">About</a>
+            <a href ng-click="tab.setTab(2); tab.changeClass('aboutMe');
+             tab.revertClass('home'); tab.revertClass('resume'); tab.revertClass('contact')">About</a>
         </li>
         <li ng-class="{ active:tab.isSet(3) }">
-            <a href ng-click="tab.setTab(3)">Resume</a>
+            <a href ng-click="tab.setTab(3);tab.changeClass('resume');
+            tab.revertClass('home'); tab.revertClass('aboutMe'); tab.revertClass('contact')">Resume</a>
         </li>
         <li ng-class="{ active:tab.isSet(4) }">
-            <a href ng-click="tab.setTab(4)">Contact</a>
+            <a href ng-click="tab.setTab(4); tab.changeClass('contact');
+            tab.revertClass('home'); tab.revertClass('aboutMe'); tab.revertClass('resume')">Contact</a>
         </li>
     </ul>
 
 
-    <slide-show ng-show="tab.isSet(1)" ></slide-show>
+    <slide-show ng-show="tab.isSet(1)"></slide-show>
 
     <about ng-show="tab.isSet(2)"></about>
 

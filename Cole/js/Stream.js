@@ -11,9 +11,9 @@
             templateUrl: 'slide-show.html',
             controller: function(){
                 var theater = [
-                    { "name": "pics/ColeI-12.jpg", "type": 0},
-                    { "name": "pics/headshots2.jpg", "type": 0},
-                    { "name": "pics/Stage2.jpg", "type": 0}
+                     "pics/ColeI-12.jpg",
+                      "pics/headshots2.jpg",
+                     "pics/Stage2.jpg"
                 ];
                 this.album = theater;
 
@@ -24,6 +24,14 @@
 
                     return this.picture;
 
+                };
+                this.next = function(){
+                  if (this.picture === theater.length-1){
+                      return 0;
+                  }
+                    else{
+                      return this.picture + 1;
+                  }
                 };
 
                 this.setCurrent = function(num) {
@@ -40,13 +48,32 @@
 
                 this.nextSlide = function() {
 
-
-
-                    this.setCurrent(this.picture + 1);
-
-
+                    this.setCurrent(this.current()+1);
 
                 };
+               /* this.nextSlide = function($timeout, $scope) {
+
+                document.getElementById("frontPic").className="fadeOut";
+                    this.timeInMs = 1000;
+                    $timeout(function(){
+                        var num = $scope.current();
+                        num++;
+                       $scope.setCurrent(num);
+
+                    }, this.timeInMs);
+
+*/
+                    /*setTimeout(function(){
+                        var num = app.slideShow.current();
+                        num += 1;
+                        slideShow.setCurrent(num);
+                        document.getElementById("frontPic").className="picFront";
+
+                        },1000);
+
+
+
+                };*/
             },
             controllerAs: 'pics'
         };
@@ -71,6 +98,15 @@
                     this.current = num;
 
                 };
+                this.changeClass = function(id){
+                    setTimeout(function(){
+                        document.getElementById(id).className = "fadeIn";
+                    }, 100);
+
+                };
+                this.revertClass = function(id){
+                    document.getElementById(id).className = "beginBlank";
+                }
 
             },
             controllerAs: 'tab'
@@ -105,4 +141,5 @@
 
         };
     });
+
 })();

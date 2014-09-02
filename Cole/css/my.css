@@ -22,6 +22,7 @@ body {
 }
 .pic{
     position:absolute;
+    left:0;
     max-width: 100%;
     max-height: 100%;
 }
@@ -29,6 +30,7 @@ body {
     position:relative;
     max-width: 100%;
     max-height: 100%;
+    margin:0 auto;
 }
 .fadeOut{
     transition: 1s;
@@ -56,59 +58,7 @@ body {
     background-color: black;
 
 }
-/*
-.ng-show{
-    transition: 1s;
-    opacity:0;
-}
-.ng-show-active{
-    opacity:1;
-}
-.ng-leave{
-    transition:0.75s;
-    opacity:1;
-}
-.ng-leave-active{
-    opacity:0;
-}
-*/
-/*
-.animated{
-    transition:1s linear all;
-}
-.animated.ng-enter.ng-enter-active{
-    opacity:1;
-}
-.animated.ng-leave{
-    opacity:1;
-}
-.animated.ng-leave.ng-leave-active{
-    opacity:0;
-}
-*/
-/*
-.tabular.ng-enter {
-    transition:0.2s linear all;
-    transition-delay:.2s;
-    position:relative;
-    z-index:100;
-    left:40px;
-    opacity:0;
-}
-.tabular.ng-enter.ng-enter-active{
-    left:0;
-    opacity:1;
-}
-.tabular.ng-leave{
-    transition:0.2s linear all;
-    left:0;
-    opacity:1;
-}
-.tabular.ng-leave.ng-leave-active{
-    left:-40px;
-    opacity:0;
-}
-*/
+
 .tabular {
     transition:0.5s linear all;
     position:relative;

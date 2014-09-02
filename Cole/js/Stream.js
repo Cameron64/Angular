@@ -5,7 +5,7 @@
 
     var app = angular.module('cole', []);
 
-    app.directive('slideShow', function() {
+    app.directive('slideShow',['$timeout', '$interval', function($timeout, $interval) {
         return{
             restrict: 'E',
             templateUrl: 'slide-show.html',
@@ -16,8 +16,8 @@
                      "pics/Stage2.jpg"
                 ];
                 this.album = theater;
-
                 this.picture = 0;
+
 
                 this.current = function() {
 
@@ -36,48 +36,37 @@
 
                 this.setCurrent = function(num) {
 
-
-                    if(this.picture >= theater.length-1) {
-                        this.picture = 0;
-                    }
-                    else {
                         this.picture = num;
-                    }
 
                 };
-
                 this.nextSlide = function() {
 
-                    this.setCurrent(this.current()+1);
+                    document.getElementById("frontPic").className = "fadeOut";
+                    var show = this;
 
+                    $timeout(function () {
+
+
+                       show.setCurrent(show.next());
+
+                        document.getElementById("frontPic").className = "picFront";
+
+                    },200);
                 };
-               /* this.nextSlide = function($timeout, $scope) {
 
-                document.getElementById("frontPic").className="fadeOut";
-                    this.timeInMs = 1000;
-                    $timeout(function(){
-                        var num = $scope.current();
-                        num++;
-                       $scope.setCurrent(num);
-
-                    }, this.timeInMs);
-
-*/
-                    /*setTimeout(function(){
-                        var num = app.slideShow.current();
-                        num += 1;
-                        slideShow.setCurrent(num);
-                        document.getElementById("frontPic").className="picFront";
-
-                        },1000);
+                this.timer = function(){
+                    var show = this;
+                    $interval(function() {
+                        show.nextSlide();
+                    },5000);
+                };
 
 
 
-                };*/
             },
             controllerAs: 'pics'
         };
-    });
+    }]);
 
     app.directive('tabs', function(){
         return{

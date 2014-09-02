@@ -1,10 +1,10 @@
 <div  class="" id="home">
     <div id="slideContainer">
-    <div class="slideShow"   ng-click="pics.nextSlide()" >
+    <div class="slideShow" data-ng-init="pics.timer()" ng-click="pics.nextSlide()" >
 
         <!--    <img     class="pic" ng-src="{{pics.album[pics.current()]}}" /> -->
-        <img  id="backPic" class="pic" ng-src="{{pics.album[pics.current()]}}" />
-        <img id="frontPic" class="picFront" ng-src="{{pics.album[pics.next()]}}">
+        <img  id="backPic" class="pic" ng-src="{{pics.album[pics.next()]}}" />
+        <img id="frontPic" class="picFront" ng-src="{{pics.album[pics.current()]}}">
 
 
 
